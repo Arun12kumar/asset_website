@@ -2,8 +2,9 @@ import { NextResponse } from "next/server";
 
 export function middleware(request) {
   const { pathname } = request.nextUrl;
-
+  
   const refreshToken = request.cookies.get("refreshToken")?.value;
+  console.log(`Middleware Debug: Path: ${pathname}, Token: ${refreshToken ? "Present" : "Missing"}`);
 
     // ✅ Routes that require authentication
   const privateAdminRoutes = [

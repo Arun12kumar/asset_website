@@ -18,6 +18,14 @@ const nextConfig = {
       },
     ],
   },
+  async rewrites() {
+    return [
+      {
+        source: "/api/:path*",
+        destination: "https://asset-backend-slqs.onrender.com/api/:path*",
+      },
+    ];
+  },
 };
 
 export default nextConfig;
