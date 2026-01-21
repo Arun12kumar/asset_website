@@ -1,5 +1,5 @@
 import axios from "axios";
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
+const API_BASE_URL = "https://asset-backend-slqs.onrender.com/api";
 
 // Public axios (for login/register)
 export const axiosPublic = axios.create({
