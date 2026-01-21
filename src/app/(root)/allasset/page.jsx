@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import React, { useState, useMemo, useEffect } from "react";
+import React, { useState, useMemo, useEffect, Suspense } from "react";
 import { Label } from "@/components/ui/label";
 import { Slider } from "@/components/ui/slider";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -11,7 +11,7 @@ import AssetCard from "@/components/mainui/AssetCard";
 import { useGetAllAssetinCard } from "@/controller/assetController";
 import { useSearchParams } from "next/navigation";
 
-const Page = () => {
+const AssetContent = () => {
   const [sortBy, setSortBy] = useState("recent");
   const [priceRange, setPriceRange] = useState([0, 1000000]);
   const [selectedConditions, setSelectedConditions] = useState([]);
@@ -275,6 +275,14 @@ const Page = () => {
         )}
       </div>
     </div>
+  );
+};
+
+const Page = () => {
+  return (
+    <Suspense fallback={<p className="p-10 text-center">Loading...</p>}>
+      <AssetContent />
+    </Suspense>
   );
 };
 
